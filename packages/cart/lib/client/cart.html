@@ -1,0 +1,62 @@
+<template name="CartSummary">
+	{{itemCount}} items
+	<br>
+	Total ${{itemTotal}}
+	{{#if itemsInCart}}
+		<br>
+		<a href="{{pathFor 'cart'}}">View Cartasdas</a>
+		<br>
+		{{>CartPayNow}}
+	{{/if}}
+</template>
+
+<template name="CartAddItemButton">
+
+        <div class="buttonCart add-item">
+            <img src="/cart2.png" class="imgCartModal" width="24" alt=""><span class="">Добавить в корзину</span>
+            
+
+
+    </div>
+</template>
+
+<template name="CartPayNow">
+	<button id="pay-now">Pay Now</button>
+</template>
+
+<template name="CartItems">
+	{{#if hasItems}}
+		{{itemCount}} items
+		<br>
+		Total ${{itemTotal}}
+		<br>
+		{{>CartPayNow}}
+		<br>
+		<hr>
+		<br>
+		{{#each items}}
+			{{>CartItem}}
+		{{/each}}
+	{{else}}
+		No items in cart!
+	{{/if}}
+</template>
+
+<template name="CartItem">
+	<div>
+	<img src="{{colorPhoto}}" width="100" alt="">
+	<a href="http://localhost:3000/razdelnyy/{{productId}}">{{tovarHeader}} {{byst}} {{trysu}}</a>
+		  {{price}} 
+		<br>
+		<div class="row">
+				<div class="input-field col s6">
+								<input type="text" class="validate quantity">
+								<label for="number2 " class="number2">{{itemCount}}</label>
+							</div>
+		</div>
+	
+		<a href="#" class="remove">Remove</a>
+	</div>
+	<hr>
+	<br><br><br>
+</template>
