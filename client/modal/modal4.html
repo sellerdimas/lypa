@@ -4,49 +4,41 @@
             <div class="row">
               
                 <img src="/closed1.png" class="close" alt="">
+                {{#if itemCountAll}}
                 <div class="col m10 offset-m1">
                     <h5>Корзина</h5>
                 </div>
                     {{#each items}}
-<!--                     <div class="col m10 offset-m1 cartTovar">
-<div class="col m2">
-    <img src="{{imgSrc}}" class="responsive-img" alt="">
-</div>
-                  
-      
-    
-        <div class="input-field col s6">
-                <input type="text" class="validate quantity">
-                <label for="number2 " class="number2">{{itemCount}}</label>
-        </div>
-        <a href="#" class="remove">Удалить</a>
-    
-                  
-</div> -->
+
 <div class="col m10 offset-m1">
         <div class="col m2">
-            <img src="{{imgSrc}}" class="responsive-img" alt="">
+            <img src="{{colorPhoto}}" class="responsive-img" alt="">
         </div>
         <div class="col m5">
             <a href="http://localhost:3000/razdelnyy/{{productId}}" class="cartA">{{tovarHeader}} {{byst}} {{trysu}}</a>
         </div>
-        <div class="col m2">
-            <input type="text" value="{{itemCount}}" class="quantity">
-        </div>
-<!--  <div class="input-field col s6">
-               <input type="text" class="validate quantity">
-               <label for="number2 " class="number2">{{itemCount}}</label>
-       </div>  --><a href="#" class="remove">Удалить</a>
+     
+        
+         <input type="text" class="quantTovar" value="{{itemCount}}">
+     
+<a href="#" class="remove">Удалить</a>
                     
 </div>
-     {{/each}}
-                           
-                    <div class="modal4Next center-align">
+ {{/each}}
+      <div class="modal4Next center-align">
                         <span class="">Продолжить покупки</span> 
                     </div>
                         <div class="modal4Cart">
-                        <span class="">Перейти в корзину</span>  
+                        <span class="">Оформить заказ</span>  
                     </div>
+{{else}}
+<div class="col m10 offset-m1">
+                    <h5>Корзина пуста</h5>
+                </div>
+{{/if}}
+    
+                           
+               
                 
             </div>
         </div>

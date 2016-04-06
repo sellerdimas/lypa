@@ -25,7 +25,7 @@ Template.modal4.events({
 Template.modal4.events({
     'click .modal4Cart': function (e) {
         $('#modal4').closeModal();
-        Router.go('cart');
+        Router.go('checkout');
 
     }
 });
@@ -101,7 +101,7 @@ Template.modal4.helpers({
     }
 });
 Template.modal4.events({
-    'change .quantity':function(event, template){
+    'blur .quantTovar':function(event, template){
         event.preventDefault();
         var quantity = $(event.target).val();
         Cart.Items.update({_id: this._id},{$set: {itemCount: quantity}})

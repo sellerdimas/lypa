@@ -158,7 +158,7 @@ Template.CartPayNow.events({
 	  });
 };*/
 
-Router.route('/cart', function () {
+Router.route('/checkout', function () {
   this.render('CartItems', {
     data: function () { 
     	var query = {};
@@ -182,13 +182,6 @@ Template.CartItem.events({
 	'click .remove':function(event, template){
 		event.preventDefault();
 		Cart.Items.remove({_id:this._id});
-	}
-});
-Template.CartItem.events({
-	'change .quantity':function(event, template){
-		event.preventDefault();
-		var quantity = $(event.target).val();
-		Cart.Items.update({_id: this._id},{$set: {itemCount: quantity}})
 	}
 });
 
