@@ -37,7 +37,7 @@ Template.nav.helpers({
 
 Template.nav.events({
     'click .cartImg':function(e, tmpl) {
-    	Router.go('cart');
+    	$('#modal4').openModal();
         
 
 

@@ -191,3 +191,4 @@ Template.CartItem.events({
 		Cart.Items.update({_id: this._id},{$set: {itemCount: quantity}})
 	}
 });
+

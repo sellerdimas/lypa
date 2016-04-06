@@ -30,8 +30,20 @@ Template.modal4.events({
     }
 });
 Template.modal4.events({
+    'click .cartA': function (e) {
+         event.preventDefault();
+     $('#modal4').closeModal();
+        Router.go('razdelnyy', {name: this.productId});
+             console.log(this.productId);
+
+    }
+});
+Template.modal4.events({
     'click .modal4Next': function (e) {
+        event.preventDefault();
         $('#modal4').closeModal();
+        
+
 
     }
 });
@@ -67,7 +79,7 @@ Template.modal2.events({
     }
 });
 Template.modal4.helpers({
-    'itemCount':function(){
+    'itemCountAll':function(){
         return Session.get('Cart-itemCount');
     },
     'itemTotal':function(){
@@ -75,7 +87,32 @@ Template.modal4.helpers({
     },
     'itemsInCart':function(){
         return !Session.equals('Cart-itemCount', 0);
+    },
+    'items': function(){
+        var query = {};
+        if(Meteor.userId())
+            query.userId = Meteor.userId();
+        else
+            query.deviceId = Session.get('Cart-deviceId');
+            
+            
+        return Cart.Items.find(query);
+        
     }
 });
+Template.modal4.events({
+    'change .quantity':function(event, template){
+        event.preventDefault();
+        var quantity = $(event.target).val();
+        Cart.Items.update({_id: this._id},{$set: {itemCount: quantity}})
+    }
+});
+Template.modal4.events({
+    'click .remove':function(event, template){
+        event.preventDefault();
+        Cart.Items.remove({_id:this._id});
+    }
+});
+
 
 

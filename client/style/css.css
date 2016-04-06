@@ -137,6 +137,9 @@ nav ul a:hover {
  z-index: 99999;
 
 }
+.cartTovar{
+  border-bottom: 1px solid gray;
+}
 .countCart{
     position: fixed;
     background: #EC407A;

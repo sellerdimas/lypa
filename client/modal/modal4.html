@@ -2,24 +2,52 @@
     <div id="modal4" class="modal">
         <div class="modal-content">
             <div class="row">
-                <div class="col s12">
+              
                 <img src="/closed1.png" class="close" alt="">
-                    
-                    <div class="col s2">
-                    	<img src="/good.png" width="80" alt="">
-                    </div>
-                    <div class="col s10">
-                    	<span class="modalCart">Товар добавлен в корзину.Товаров в вашей корзине: <span class="pinkCena">{{itemCount}}</span> общая сумма: <span class="pinkCena">{{itemTotal}}</span> грн.</span>
-                    </div>
-                        <div class="modal4Next center-align">
-            <span class="">Продолжить покупки</span>
-            
-        </div>
-            <div class="modal4Cart">
-            <img src="/cart2.png" class="imgCartModal" width="24" alt=""><span class="">Перейти в корзину</span>
-            
-        </div>
+                <div class="col m10 offset-m1">
+                    <h5>Корзина</h5>
                 </div>
+                    {{#each items}}
+<!--                     <div class="col m10 offset-m1 cartTovar">
+<div class="col m2">
+    <img src="{{imgSrc}}" class="responsive-img" alt="">
+</div>
+                  
+      
+    
+        <div class="input-field col s6">
+                <input type="text" class="validate quantity">
+                <label for="number2 " class="number2">{{itemCount}}</label>
+        </div>
+        <a href="#" class="remove">Удалить</a>
+    
+                  
+</div> -->
+<div class="col m10 offset-m1">
+        <div class="col m2">
+            <img src="{{imgSrc}}" class="responsive-img" alt="">
+        </div>
+        <div class="col m5">
+            <a href="http://localhost:3000/razdelnyy/{{productId}}" class="cartA">{{tovarHeader}} {{byst}} {{trysu}}</a>
+        </div>
+        <div class="col m2">
+            <input type="text" value="{{itemCount}}" class="quantity">
+        </div>
+<!--  <div class="input-field col s6">
+               <input type="text" class="validate quantity">
+               <label for="number2 " class="number2">{{itemCount}}</label>
+       </div>  --><a href="#" class="remove">Удалить</a>
+                    
+</div>
+     {{/each}}
+                           
+                    <div class="modal4Next center-align">
+                        <span class="">Продолжить покупки</span> 
+                    </div>
+                        <div class="modal4Cart">
+                        <span class="">Перейти в корзину</span>  
+                    </div>
+                
             </div>
         </div>
     </div>
